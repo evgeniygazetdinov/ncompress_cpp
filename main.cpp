@@ -1,15 +1,11 @@
-// #include "ncompress.h"
 #include <iostream>
+
+
 using namespace std;
-
-
-
+#include "ncompress.h"
 int main()
-{
-
-    // Unuseful u;
-    // u.printUnusefulStatement();
-    cout<<"hell"<<endl;
-    return 0; 
-
+{   Car car1;
+    car1.brand = '1';
+    cout<<car1.brand<<endl;
+    return 0;
 }
