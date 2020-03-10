@@ -1,10 +1,11 @@
-#include<iostream>
+#include "ncompress.hpp"
+#include <iostream>
 
-
-class Unuseful {
-public:
-    void Unuseful::printUnusefulStatement()
-    {
-        std::cout<<"hell"<<std::endl;
-    }
+void Ncompress::compress()
+{
+    std::cout<<"compress"<<std::endl;
+};
+void Ncompress::decompress()
+{
+    std::cout<<"decompress"<<std::endl;
 };

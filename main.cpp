@@ -1,15 +1,12 @@
-// #include "ncompress.h"
 #include <iostream>
+#include "ncompress.cpp"
 using namespace std;
-
-
+ 
 
 int main()
-{
-
-    // Unuseful u;
-    // u.printUnusefulStatement();
-    cout<<"hell"<<endl;
-    return 0; 
-
+{    
+ 
+    Ncompress instance;
+    instance.compress();
+    return 0;
 }
