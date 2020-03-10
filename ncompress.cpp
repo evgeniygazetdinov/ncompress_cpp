@@ -1,11 +1,11 @@
-#include "ncompress.h"
+#include "ncompress.hpp"
 #include <iostream>
 
 void Ncompress::compress()
 {
-    std::cout<<"noup"<<std::endl;
+    std::cout<<"compress"<<std::endl;
 };
 void Ncompress::decompress()
 {
-    std::cout<<"noup"<<std::endl;
+    std::cout<<"decompress"<<std::endl;
 };

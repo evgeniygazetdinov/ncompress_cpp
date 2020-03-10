@@ -1,8 +1,6 @@
 #include <iostream>
-
-
-using namespace std;
 #include "ncompress.cpp"
+using namespace std;
  
 
 int main()
