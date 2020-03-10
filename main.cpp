@@ -2,10 +2,13 @@
 
 
 using namespace std;
-#include "ncompress.h"
+#include "ncompress.cpp"
+ 
+
 int main()
-{   Car car1;
-    car1.brand = '1';
-    cout<<car1.brand<<endl;
+{    
+ 
+    Ncompress instance;
+    instance.compress();
     return 0;
 }

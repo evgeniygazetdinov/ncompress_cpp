@@ -1,7 +1,11 @@
 #include "ncompress.h"
 #include <iostream>
 
-void Car::print()
+void Ncompress::compress()
+{
+    std::cout<<"noup"<<std::endl;
+};
+void Ncompress::decompress()
 {
     std::cout<<"noup"<<std::endl;
 };

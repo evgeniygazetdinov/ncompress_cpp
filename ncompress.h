@@ -2,10 +2,8 @@
 #include <string>
 #include <iostream>
 using namespace std;
-class Car {
+class Ncompress {
   public:
-    std::string brand;   
-    std::string model;
-    int year;
-    void print();
+    void compress();
+    void decompress();
 };
