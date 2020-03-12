@@ -40,9 +40,9 @@ void Ncompress::compress()
     }
   }
  
-  // Output the code for w.
   if (!w.empty())
     this->write_to_file(dictionary[w]);
+
 };
 void Ncompress::decompress()
 {
