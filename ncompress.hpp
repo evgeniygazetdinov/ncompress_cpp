@@ -7,7 +7,7 @@ class Ncompress {
     void decompress();
     Ncompress();
   private:
-    void write_to_file();
+    void write_to_file(string from_res);
     string res;
     string filename;
 };
