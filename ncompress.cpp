@@ -11,37 +11,41 @@ Ncompress::Ncompress()
 
 }
 
-void Ncompress::write_to_file(string &for_save)
-{ 
-    std::of
-    stream out("output.txt");
-    out << for_save;
-    out.close();
+void Ncompress::write_to_file()
+{   
+   
+ std::ofstream out;
+
+ // std::ios::app is the open mode "append" meaning
+ // new data will be written to the end of the file.
+ out.open("myfile.txt", std::ios::app);
+
+ std::string str = "I am here.";
+ out << str;
 };
 
 void Ncompress::compress()
-{
-  const std::string uncompressed = "xaxa"; 
-  int dictSize = 256;
-  std::map<std::string,int> dictionary;
-  for (int i = 0; i < 256; i++)
-    dictionary[std::string(1, i)] = i;
-  std::string w;
-  for (std::string::const_iterator it = uncompressed.begin();
+{   
+    int dictSize = 256;
+    const std::string uncompressed = "xaxa"; 
+    std::map<std::string,int> dict;
+    for (int i = 0; i < 256; i++)
+    {
+        dict[std::string(1, i)] = i;
+    }
+    std::string w;
+     for (std::string::const_iterator it = uncompressed.begin();
        it != uncompressed.end(); ++it) {
     char c = *it;
     std::string wc = w + c;
-    if (dictionary.count(wc))
+    if (dict.count(wc))
       w = wc;
     else {
-      this->write_to_file(dictionary[w]);
-      dictionary[wc] = dictSize++;
+      
+      dict[wc] = dictSize++;
       w = std::string(1, c);
     }
-  }
- 
-  if (!w.empty())
-    this->write_to_file(dictionary[w]);
+       }
 
 };
 void Ncompress::decompress()
