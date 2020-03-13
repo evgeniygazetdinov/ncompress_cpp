@@ -16,7 +16,7 @@ Ncompress::Ncompress()
     res = "1fh";
 }
 
-void Ncompress::write_to_file(int for_write)
+void Ncompress::write_numbers_to_file(int for_write)
 {   
   //convert number to string
   std::string number_for_write;
@@ -29,14 +29,25 @@ void Ncompress::write_to_file(int for_write)
   out << "\n";
   out << number_for_write;
 };
-
-std::string read_from_file()
+int Ncompress::count_numbers()
 {
-  std::string f ;
-  f = "noncense";
-  return f;
+  //this case use for undestand which length need for create QByteArray for return
+  int quantity_numbers = 0;
+  string line;
+  ifstream file(FILENAME);
+  while(getline(file,line))
+    {
+       quantity_numbers++;
+    }
+  return quantity_numbers;
+};
 
-}
+
+std::string Ncompress::read_numbers()
+{
+  std::ifstream input(FILENAME);
+
+};
 
 
 void Ncompress::compress()
@@ -56,7 +67,7 @@ void Ncompress::compress()
     if (dict.count(wc))
       w = wc;
     else {
-      this->write_to_file(dict[w]);
+      this->write_numbers_to_file(dict[w]);
       dict[wc] = dictSize++;
       w = std::string(1, c);
     }
