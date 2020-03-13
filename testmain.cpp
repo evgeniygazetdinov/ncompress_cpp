@@ -2,6 +2,7 @@
 #include <QLabel>
 #include <QWidget>
 #include "ncompress.cpp"
+#include <QByteArray>
 
 
 
