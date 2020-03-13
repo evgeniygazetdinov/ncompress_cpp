@@ -1,5 +1,6 @@
-#include <string>
-#include <iostream>
+
+// #include <string>
+
 using namespace std;
 class Ncompress {
   public:
@@ -7,7 +8,8 @@ class Ncompress {
     void decompress();
     Ncompress();
   private:
-    void write_to_file();
+    void write_numbers_to_file(int from_res);
+    string read_numbers();
+    int count_numbers();
     string res;
-    string filename;
 };
