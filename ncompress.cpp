@@ -2,21 +2,42 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <typeinfo>
+#include <sstream>
+
+
+#define FILENAME "output.txt"
+
+
 
 
 Ncompress::Ncompress()
 {
     res = "1fh";
-    filename = "output.txt";
 }
 
-void Ncompress::write_to_file(string for_write)
+void Ncompress::write_to_file(int for_write)
 {   
-    std::ofstream out;
-    out.open("myfile.txt", std::ios::app);
-    std::string str =for_write;
-    out << str;
+  //convert number to string
+  std::string number_for_write;
+  std::stringstream ss;
+  ss << for_write;
+  number_for_write = ss.str();
+  //write this into textfile
+  std::ofstream out;
+  out.open(FILENAME, std::ios::app);
+  out << "\n";
+  out << number_for_write;
 };
+
+std::string read_from_file()
+{
+  std::string f ;
+  f = "noncense";
+  return f;
+
+}
+
 
 void Ncompress::compress()
 {   
@@ -35,13 +56,14 @@ void Ncompress::compress()
     if (dict.count(wc))
       w = wc;
     else {
-      std::cout<<dict[w]<<endl;
-    //   TODO HANDLE WRITE TO FILE THIS TYPE
-    //   this->write_to_file(dict[w]);
+      this->write_to_file(dict[w]);
       dict[wc] = dictSize++;
       w = std::string(1, c);
     }
-       }
+  }
+  // if (!w.empty())
+    //this->dict[w];
+  
 
 };
 void Ncompress::decompress()
