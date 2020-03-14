@@ -6,6 +6,7 @@
 #include <sstream>
 #include <QByteArray>
 
+
 #define FILENAME "output.txt"
 
 
@@ -53,6 +54,7 @@ std::string Ncompress::read_numbers()
 };
 
 
+
 QByteArray Ncompress::compress(const QByteArray&  for_compress)
 {   
     int dictSize = 256;
@@ -78,10 +80,12 @@ QByteArray Ncompress::compress(const QByteArray&  for_compress)
   }
   // TODO add read from file
   // add create Qbytearr and push numbers into him
+
   if (!w.empty())
     this->write_numbers_to_file(dict[w]);
     
   return for_compress;
+
 
 };
 QByteArray Ncompress::decompress(const QByteArray& for_decompress)

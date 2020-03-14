@@ -7,14 +7,11 @@
 #include <QDebug>
 
 QByteArray create_array_from_string(string for_convert)
-
 {
     QString str = QString::fromStdString(for_convert);
     QByteArray converted = str.toUtf8();
     return converted;
 }
-
-
 
 int main(int argc, char *argv[ ])
 {
