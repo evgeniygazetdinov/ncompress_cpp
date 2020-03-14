@@ -8,8 +8,9 @@
 
 int main(int argc, char *argv[ ])
 {
+    QByteArray for_compress;
     Ncompress d;
-    d.compress();
+    d.compress(for_compress);
     QApplication app(argc, argv);
     QLabel hello("<center>Welcome to my first Qt program</center>");
     hello.setWindowTitle("My First Qt Program");
