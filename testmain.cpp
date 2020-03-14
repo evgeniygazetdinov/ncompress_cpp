@@ -5,6 +5,7 @@
 #include <QByteArray>
 #include <QString>
 #include <QDebug>
+#include <QList>
 
 QByteArray create_array_from_string(string for_convert)
 
@@ -20,9 +21,8 @@ int main(int argc, char *argv[ ])
 {
     
     QByteArray for_compress = create_array_from_string("xaxaxa");
-    qDebug() <<for_compress;
     Ncompress d;
-    d.compress(for_compress);
+    qDebug()<< d.compress(for_compress);
     QApplication app(argc, argv);
     QLabel hello("<center>Welcome to my first Qt program</center>");
     hello.setWindowTitle("My First Qt Program");
