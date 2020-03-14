@@ -7,10 +7,6 @@
 #include <QByteArray>
 #include <QDebug>
 
-
-
-
-
 QByteArray Ncompress::compress(const QByteArray&  for_compress)
 {   QByteArray compressed;
     qDebug()<<compressed;
@@ -32,9 +28,11 @@ QByteArray Ncompress::compress(const QByteArray&  for_compress)
       w = std::string(1, c);
     }
   }
+
   if (!w.empty())
     compressed.append(dict[w]);
   return compressed;
+
 
 };
 QByteArray Ncompress::decompress(const QByteArray& for_decompress)

@@ -1,5 +1,4 @@
 
-
 using namespace std;
 class Ncompress 
 {
