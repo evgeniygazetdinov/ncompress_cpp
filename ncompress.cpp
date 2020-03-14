@@ -4,6 +4,7 @@
 #include <string>
 #include <typeinfo>
 #include <sstream>
+#include <QByteArray>
 
 
 #define FILENAME "output.txt"
@@ -53,7 +54,8 @@ std::string Ncompress::read_numbers()
 };
 
 
-void Ncompress::compress()
+
+QByteArray Ncompress::compress(const QByteArray&  for_compress)
 {   
     int dictSize = 256;
     const std::string uncompressed = "xaxax"; 
@@ -78,12 +80,42 @@ void Ncompress::compress()
   }
   // TODO add read from file
   // add create Qbytearr and push numbers into him
-  // if (!w.empty())
-    //this->dict[w];
-  
+
+  if (!w.empty())
+    this->write_numbers_to_file(dict[w]);
+    
+  return for_compress;
+
 
 };
-void Ncompress::decompress()
-{
-    std::cout<<"decompress"<<std::endl;
+QByteArray Ncompress::decompress(const QByteArray& for_decompress)
+{/*
+  int end =1 ;
+  int begin = 2;
+  // Build the dictionary.
+  int dictSize = 256;
+  std::map<int,std::string> dict;
+  for (int i = 0; i < 256; i++)
+    dict[i] = std::string(1, i);
+ 
+  std::string w(1, *begin++);
+  std::string result = w;
+  std::string entry;
+  for ( ; begin != end; begin++) {
+    int k = *begin;
+    if (dict.count(k))
+      entry = dict[k];
+    else if (k == dictSize)
+      entry = w + w[0];
+    else
+      throw "Bad compressed k";
+ 
+    result += entry;
+ 
+    // Add w+entry[0] to the dictionary.
+    dict[dictSize++] = w + entry[0];
+ 
+    w = entry;
+  }*/
+  return for_decompress;
 };

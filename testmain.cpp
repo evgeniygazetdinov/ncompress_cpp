@@ -3,13 +3,23 @@
 #include <QWidget>
 #include "ncompress.cpp"
 #include <QByteArray>
+#include <QString>
+#include <QDebug>
 
-
+QByteArray create_array_from_string(string for_convert)
+{
+    QString str = QString::fromStdString(for_convert);
+    QByteArray converted = str.toUtf8();
+    return converted;
+}
 
 int main(int argc, char *argv[ ])
 {
+    
+    QByteArray for_compress = create_array_from_string("xaxaxa");
+    qDebug() <<for_compress;
     Ncompress d;
-    d.compress();
+    d.compress(for_compress);
     QApplication app(argc, argv);
     QLabel hello("<center>Welcome to my first Qt program</center>");
     hello.setWindowTitle("My First Qt Program");
