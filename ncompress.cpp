@@ -2,14 +2,17 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <typeinfo>
-#include <sstream>
 #include <QByteArray>
 #include <QDebug>
+#include <QStringList>
+#include <QString>
+#include <QStringList>
+
+
+
 
 QByteArray Ncompress::compress(const QByteArray&  for_compress)
 {   QByteArray compressed;
-    qDebug()<<compressed;
     int dictSize = 256;
     std::map<std::string,int> dict;
     for (int i = 0; i < 256; i++)
@@ -17,8 +20,10 @@ QByteArray Ncompress::compress(const QByteArray&  for_compress)
         dict[std::string(1, i)] = i;
     }
     std::string w;
-    for (int i=0;i<for_compress.count(); ++i) {
-    char c = for_compress[i];
+    std::string ar (for_compress.constData(), for_compress.length());
+    for (string::const_iterator it = ar.begin();
+      it != ar.end(); ++it) {
+    char c = *it;
     std::string wc = w + c;
     if (dict.count(wc))
       w = wc;
@@ -32,8 +37,6 @@ QByteArray Ncompress::compress(const QByteArray&  for_compress)
   if (!w.empty())
     compressed.append(dict[w]);
   return compressed;
-
-
 };
 QByteArray Ncompress::decompress(const QByteArray& for_decompress)
 {/*
