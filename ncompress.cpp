@@ -11,6 +11,7 @@
 
 
 
+
 QByteArray Ncompress::compress(const QByteArray&  for_compress)
 {   QByteArray compressed;
     int dictSize = 256;
@@ -33,7 +34,6 @@ QByteArray Ncompress::compress(const QByteArray&  for_compress)
       w = std::string(1, c);
     }
   }
-
   if (!w.empty())
     compressed.append(dict[w]);
   return compressed;
