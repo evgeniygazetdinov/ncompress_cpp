@@ -5,21 +5,21 @@
 #include <QByteArray>
 #include <QString>
 #include <QDebug>
+#include <QList>
 
-QByteArray create_array_from_string(string for_convert)
+QByteArray create_barray_from_string(string for_convert)
 {
-    QString str = QString::fromStdString(for_convert);
-    QByteArray converted = str.toUtf8();
+    QByteArray converted(for_convert.data(), for_convert.length());
     return converted;
 }
 
 int main(int argc, char *argv[ ])
 {
-    
-    QByteArray for_compress = create_array_from_string("xaxaxa");
-    qDebug() <<for_compress;
+    QByteArray for_compress = create_barray_from_string("xaxaxa");
+    qDebug()<<for_compress;
     Ncompress d;
-    d.compress(for_compress);
+    qDebug()<< d.compress(for_compress);
+
     QApplication app(argc, argv);
     QLabel hello("<center>Welcome to my first Qt program</center>");
     hello.setWindowTitle("My First Qt Program");
