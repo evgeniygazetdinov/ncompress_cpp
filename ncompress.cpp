@@ -8,49 +8,75 @@
 #include <QString>
 #include <QStringList>
 
+#include <QDataStream>
 
 
 
 
-QByteArray Ncompress::compress(const QByteArray&  for_compress)
-{   QByteArray compressed;
+
+QByteArray Ncompress::compress(const QByteArray  for_compress)
+{   
+    //try with another one place for save n
+    QByteArray res;
+    vector<int> res2;
+    
+
     int dictSize = 256;
     std::map<std::string,int> dict;
     for (int i = 0; i < 256; i++)
     {
         dict[std::string(1, i)] = i;
-    }
+    } 
     std::string w;
+    //convert qbyte to string
+
     std::string ar (for_compress.constData(), for_compress.length());
     for (string::const_iterator it = ar.begin();
       it != ar.end(); ++it) {
     char c = *it;
-    std::string wc = w + c;
+    std::string wc = w+ c;
+    
     if (dict.count(wc))
-      w = wc;
+      {
+        w = wc;
+      }
     else {
-      compressed.append(dict[w]);
+      //right one
+      res.append(dict[w]);
+      res2.push_back(dict[w]);
       dict[wc] = dictSize++;
+      
       w = std::string(1, c);
     }
   }
+
   if (!w.empty())
-    compressed.append(dict[w]);
-  return compressed;
+    {res.append(dict[w]);
+    res2.push_back(dict[w]);
+    }
+  	
+    for(int i=0;i<res.size();i++){ 
+		std::cout << res2[i]<<endl;
+    }
+  return res;
 };
 QByteArray Ncompress::decompress(const QByteArray& for_decompress)
-{/*
-  int end =1 ;
-  int begin = 2;
+{  /*
+  QByteArray res;
+  std::string word_for_decompress (for_decompress.data(), for_decompress.length());
+  int end = word_for_decompress.end();
+  int begin = word_for_decompress.begin();
   // Build the dictionary.
   int dictSize = 256;
   std::map<int,std::string> dict;
   for (int i = 0; i < 256; i++)
+  {
     dict[i] = std::string(1, i);
- 
-  std::string w(1, *begin++);
-  std::string result = w;
+  }
+  //std::string w(1, *begin++);
+  //std::string result = w;
   std::string entry;
+ 
   for ( ; begin != end; begin++) {
     int k = *begin;
     if (dict.count(k))
