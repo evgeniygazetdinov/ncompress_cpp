@@ -8,9 +8,6 @@
 #include <QList>
 #include <vector>
 
-
-
-
 QByteArray create_barray_from_string(string for_convert)
 {
     QByteArray converted(for_convert.data(), for_convert.length());
@@ -19,6 +16,7 @@ QByteArray create_barray_from_string(string for_convert)
 
 int main(int argc, char *argv[ ])
 {
+
     QByteArray for_compress = create_barray_from_string("z323f3");
     Ncompress d;
     qDebug()<<d.compress(for_compress);

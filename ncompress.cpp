@@ -13,12 +13,14 @@
 
 
 
+
 QByteArray Ncompress::compress(const QByteArray  for_compress)
 {   
     //try with another one place for save n
     QByteArray res;
     vector<int> res2;
     
+
     int dictSize = 256;
     std::map<std::string,int> dict;
     for (int i = 0; i < 256; i++)
@@ -27,6 +29,7 @@ QByteArray Ncompress::compress(const QByteArray  for_compress)
     } 
     std::string w;
     //convert qbyte to string
+
     std::string ar (for_compress.constData(), for_compress.length());
     for (string::const_iterator it = ar.begin();
       it != ar.end(); ++it) {
