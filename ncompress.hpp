@@ -8,4 +8,5 @@ class Ncompress
   private:
     QByteArray serialize(QVector<int> data);
     QByteArray deserialize(QByteArray for_decompress);
+
   };

@@ -24,6 +24,7 @@ QByteArray Ncompress::serialize(QVector<int> vec)
     }
     return byteArray;
 };
+
 QByteArray Ncompress::deserialize(QByteArray for_decompress)
 {   /*
     QFile file("1.bin");
@@ -67,6 +68,7 @@ QByteArray Ncompress::compress(const QByteArray  for_compress)
   if (dict.count(wc))
     {
       w = wc;
+
     }
   else {
     //right one
@@ -76,14 +78,15 @@ QByteArray Ncompress::compress(const QByteArray  for_compress)
     w = std::string(1, c);
   }
 }
-
 if (!w.empty())
   {
     res2.push_back(dict[w]);
   }
 res = (this->serialize(res2));
+
 return res;
 };
+
 QByteArray Ncompress::decompress(const QByteArray& for_decompress)
 { //TODO EXTRACt qvector and start uncomented
 
@@ -120,5 +123,6 @@ QByteArray Ncompress::decompress(const QByteArray& for_decompress)
  
     w = entry;
   }*/
+
   return for_decompress;
 };
