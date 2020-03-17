@@ -26,6 +26,7 @@ QByteArray Ncompress::serialize(QVector<int> vec)
     return byteArray;
 };
 
+
 QByteArray Ncompress::compress(const QByteArray  for_compress)
 {   
 
