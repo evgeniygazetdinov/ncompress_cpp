@@ -6,4 +6,5 @@ class Ncompress
     QByteArray compress(const QByteArray  for_compression);
     QByteArray decompress(const QByteArray&  for_decompression);
     QByteArray serialize(QVector<int> data);
+
   };
