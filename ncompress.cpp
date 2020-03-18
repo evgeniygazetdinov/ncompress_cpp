@@ -4,7 +4,6 @@
 #include <string>
 #include <QByteArray>
 #include <QDebug>
-#include <QStringList>
 #include <QString>
 #include <QVector>
 #include <QFile>
@@ -67,14 +66,13 @@ if (!w.empty())
   }
 res = (this->serialize(res2));
 
+
 return res;
 };
 
 QByteArray Ncompress::decompress(const QByteArray& for_decompress)
 {
-
   QByteArray byteArray = this->deserialize(for_decompress);
-
 
   return for_decompress;
 };

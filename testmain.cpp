@@ -24,8 +24,8 @@ int main(int argc, char *argv[ ])
     //qDebug()<< argv[1];
     QApplication app(argc, argv);
     QLabel hello("<center>Welcome to my first Qt program</center>");
+
     hello.resize(400, 400); (d.compress(for_compress));
     hello.show();
     return app.exec();
-
 }
