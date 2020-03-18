@@ -9,11 +9,11 @@
 #include <QVector>
 #include <QFile>
 #include <QDataStream>
-
 QByteArray Ncompress::serialize(QVector<int> vec)
 {
     QByteArray byteArray;
     QDataStream stream(&byteArray, QIODevice::WriteOnly);
+    stream.setVersion(QDataStream::Qt_5_5);
     stream << vec;
     QFile file("1.bin");
     if(file.open(QIODevice::WriteOnly))
@@ -26,24 +26,7 @@ QByteArray Ncompress::serialize(QVector<int> vec)
 };
 
 QByteArray Ncompress::deserialize(QByteArray for_decompress)
-{   /*
-    QFile file("1.bin");
-    QVector<int> vec;
-    if(file.open(QIODevice::ReadOnly))
-    {
-      QDataStream fileStream(&file);
-      for(;;)
-        { int tempValue;
-          fileStream.startTransaction();
-          fileStream >> tempValue;
-          if(fileStream.commitTransaction())
-            vec << tempValue;
-          else
-            break;
-        }
-    }
-    */
-  
+{  
     return for_decompress;
 };
 
@@ -88,41 +71,10 @@ return res;
 };
 
 QByteArray Ncompress::decompress(const QByteArray& for_decompress)
-{ //TODO EXTRACt qvector and start uncomented
+{
 
   QByteArray byteArray = this->deserialize(for_decompress);
-  //QByteArray res;
-  //std::string word_for_decompress (for_decompress.data(), for_decompress.length());
-  //int end = word_for_decompress.end();
-  //int begin = word_for_decompress.begin();
-   /*
- // Build the dictionary.
-  int dictSize = 256;
-  std::map<int,std::string> dict;
-  for (int i = 0; i < 256; i++)
-  {
-    dict[i] = std::string(1, i);
-  }
-  //std::string w(1, *begin++);
-  //std::string result = w;
-  std::string entry;
- 
-  for ( ; begin != end; begin++) {
-    int k = *begin;
-    if (dict.count(k))
-      entry = dict[k];
-    else if (k == dictSize)
-      entry = w + w[0];
-    else
-      throw "Bad compressed k";
- 
-    result += entry;
- 
-    // Add w+entry[0] to the dictionary.
-    dict[dictSize++] = w + entry[0];
- 
-    w = entry;
-  }*/
+
 
   return for_decompress;
 };

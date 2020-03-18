@@ -19,7 +19,7 @@ int main(int argc, char *argv[ ])
     Ncompress d;
     QByteArray compressed = d.compress(for_compress);
     //qDebug()<< compressed;
-    QByteArray uncompressed = d.decompress(compressed);
+    //QByteArray uncompressed = d.decompress(compressed);
     
     //qDebug()<< argv[1];
     QApplication app(argc, argv);
