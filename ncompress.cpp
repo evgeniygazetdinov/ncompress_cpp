@@ -1,19 +1,18 @@
 #include "ncompress.hpp"
 #include <iostream>
-#include <fstream>
+#include <stdio.h> 
 #include <string>
 #include <QByteArray>
 #include <QDebug>
-#include <QStringList>
 #include <QString>
 #include <QVector>
 #include <QFile>
 #include <QDataStream>
-
 QByteArray Ncompress::serialize(QVector<int> vec)
 {
     QByteArray byteArray;
     QDataStream stream(&byteArray, QIODevice::WriteOnly);
+    stream.setVersion(QDataStream::Qt_5_5);
     stream << vec;
     QFile file("1.bin");
     if(file.open(QIODevice::WriteOnly))
@@ -23,6 +22,11 @@ QByteArray Ncompress::serialize(QVector<int> vec)
     file.close();
     }
     return byteArray;
+};
+
+QByteArray Ncompress::deserialize(QByteArray for_decompress)
+{  
+    return for_decompress;
 };
 
 QByteArray Ncompress::compress(const QByteArray  for_compress)
@@ -56,21 +60,19 @@ QByteArray Ncompress::compress(const QByteArray  for_compress)
     w = std::string(1, c);
   }
 }
-
-  if (!w.empty())
-    {
+if (!w.empty())
+  {
     res2.push_back(dict[w]);
-    }
+  }
+res = (this->serialize(res2));
 
-    for(int i=0;i<res2.size();i++){ 
-    std::cout << res2[i]<<endl;
-    }
 
-  res = (this->serialize(res2));
 return res;
 };
 
 QByteArray Ncompress::decompress(const QByteArray& for_decompress)
-{ 
+{
+  QByteArray byteArray = this->deserialize(for_decompress);
+
   return for_decompress;
 };
